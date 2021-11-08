@@ -99,12 +99,12 @@
 		9668EDDA2739789D0031004D /* Cocktail */ = {
 			isa = PBXGroup;
 			children = (
-				9668EDDB2739789D0031004D /* AppDelegate.swift */,
-				9668EDDD2739789D0031004D /* SceneDelegate.swift */,
-				9668EDDF2739789D0031004D /* ViewController.swift */,
-				9668EDE12739789D0031004D /* Main.storyboard */,
+				9668EE16273978F60031004D /* StoryBoard */,
+				9668EE15273978ED0031004D /* Application */,
+				9668EE14273978E80031004D /* Model */,
+				9668EE13273978E00031004D /* View */,
+				9668EE12273978C30031004D /* ViewModel */,
 				9668EDE4273978A50031004D /* Assets.xcassets */,
-				9668EDE6273978A50031004D /* LaunchScreen.storyboard */,
 				9668EDE9273978A50031004D /* Info.plist */,
 			);
 			path = Cocktail;
@@ -126,6 +126,46 @@
 				9668EDFF273978A50031004D /* Info.plist */,
 			);
 			path = CocktailUITests;
+			sourceTree = "<group>";
+		};
+		9668EE12273978C30031004D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9668EE13273978E00031004D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9668EDE12739789D0031004D /* Main.storyboard */,
+				9668EDDF2739789D0031004D /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9668EE14273978E80031004D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9668EE15273978ED0031004D /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9668EDDD2739789D0031004D /* SceneDelegate.swift */,
+				9668EDDB2739789D0031004D /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		9668EE16273978F60031004D /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				9668EDE6273978A50031004D /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
