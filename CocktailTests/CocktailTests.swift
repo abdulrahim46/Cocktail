@@ -6,28 +6,35 @@
 //
 
 import XCTest
+import Combine
 @testable import Cocktail
 
 class CocktailTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var subscriptions = Set<AnyCancellable>()
+    
+    override func tearDown() {
+        subscriptions = []
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    /// test for news fetcher api
+    func test_fetching_api_data() {
+        let mock = ApiMockResources()
+        let fetcher = CocktailViewModel(apiResource: mock)
+        
+        XCTAssertEqual(fetcher.drinks?.drinks, nil, "starting with no data...")
+        
+        let promise = expectation(description: "loading 3 news data count...")
+        fetcher.$drinks.sink{ (completion) in
+            XCTFail()
+        } receiveValue: { (drink) in
+            if drink?.drinks.count == 3 {
+                promise.fulfill()
+            }
+        }.store(in: &subscriptions)
+        
+        wait(for: [promise], timeout: 1)
+        
     }
 
 }

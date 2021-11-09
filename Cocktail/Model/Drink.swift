@@ -15,7 +15,7 @@ struct Drink: Codable {
     }
 }
 
-struct Drinks: Codable {
+struct Drinks: Codable, Equatable {
     let category: String?
     let image: String?
     let drink: String?

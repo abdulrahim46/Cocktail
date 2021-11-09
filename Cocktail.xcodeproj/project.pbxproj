@@ -31,6 +31,7 @@
 		9668EE63273AC0E70031004D /* StaticCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9668EE61273AC0E70031004D /* StaticCollectionViewCell.xib */; };
 		9668EE68273ACA150031004D /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE67273ACA150031004D /* SectionHeader.swift */; };
 		9668EE6D273ACF460031004D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE6C273ACF460031004D /* DetailViewController.swift */; };
+		9668EE76273ADAB60031004D /* APIMockResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE75273ADAB60031004D /* APIMockResources.swift */; };
 		A7630C98CDE35E1081FBA0A9 /* Pods_CocktailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C5E4766098CE976E30674C /* Pods_CocktailTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		9668EE61273AC0E70031004D /* StaticCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticCollectionViewCell.xib; sourceTree = "<group>"; };
 		9668EE67273ACA150031004D /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		9668EE6C273ACF460031004D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9668EE75273ADAB60031004D /* APIMockResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMockResources.swift; sourceTree = "<group>"; };
 		9676D69FA8AE057B6C4DCD65 /* Pods-Cocktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cocktail.debug.xcconfig"; path = "Target Support Files/Pods-Cocktail/Pods-Cocktail.debug.xcconfig"; sourceTree = "<group>"; };
 		97AB053DDA5F1DCD81FDD5A3 /* Pods_Cocktail_CocktailUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cocktail_CocktailUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A12A18C3ACA4F6CD2A246 /* Pods-Cocktail-CocktailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cocktail-CocktailUITests.debug.xcconfig"; path = "Target Support Files/Pods-Cocktail-CocktailUITests/Pods-Cocktail-CocktailUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,13 +159,13 @@
 		9668EDDA2739789D0031004D /* Cocktail */ = {
 			isa = PBXGroup;
 			children = (
-				9668EE39273A760D0031004D /* Common */,
-				9668EE25273A75680031004D /* Services */,
-				9668EE16273978F60031004D /* StoryBoard */,
-				9668EE15273978ED0031004D /* Application */,
 				9668EE14273978E80031004D /* Model */,
 				9668EE13273978E00031004D /* View */,
 				9668EE12273978C30031004D /* ViewModel */,
+				9668EE25273A75680031004D /* Services */,
+				9668EE16273978F60031004D /* StoryBoard */,
+				9668EE15273978ED0031004D /* Application */,
+				9668EE39273A760D0031004D /* Common */,
 				9668EDE4273978A50031004D /* Assets.xcassets */,
 				9668EDE9273978A50031004D /* Info.plist */,
 			);
@@ -173,6 +175,7 @@
 		9668EDF1273978A50031004D /* CocktailTests */ = {
 			isa = PBXGroup;
 			children = (
+				9668EE74273ADA9E0031004D /* Services */,
 				9668EDF2273978A50031004D /* CocktailTests.swift */,
 				9668EDF4273978A50031004D /* Info.plist */,
 			);
@@ -262,6 +265,14 @@
 				9668EE4C273A78B70031004D /* Extension.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		9668EE74273ADA9E0031004D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9668EE75273ADAB60031004D /* APIMockResources.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F34AB89F0323826A0BBCAF6B /* Frameworks */ = {
@@ -536,6 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9668EE76273ADAB60031004D /* APIMockResources.swift in Sources */,
 				9668EDF3273978A50031004D /* CocktailTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
