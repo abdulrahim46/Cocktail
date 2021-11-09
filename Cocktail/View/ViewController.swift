@@ -77,11 +77,15 @@ class ViewController: UIViewController {
             loadingIndicator.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+        
+        searchBarView.sizeToFit()
+        searchBarView.delegate = self
+        searchBarView.placeholder = "Search drinks"
     }
     
     
     private func fetchDrinks() {
-        viewModel.fetchDrinks()
+        viewModel.fetchDrinks(query: "")
         viewModel.$drinks
             .receive(on: DispatchQueue.main)
             .sink { [weak self] drinks in
@@ -93,6 +97,32 @@ class ViewController: UIViewController {
     }
     
     
+}
+
+//MARK:- Searchbar delegates
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        collectionView.isHidden = true
+        //print("Search bar editing did begin..")
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        collectionView.isHidden = false
+        //print("Search bar editing did end..")
+    }
+    
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        search(shouldShow: false)
+//    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count > 3 {
+            viewModel.fetchDrinks(query: searchText)
+            collectionView.reloadData()
+            collectionView.isHidden = false
+        }
+    }
 }
 
 
@@ -107,8 +137,9 @@ extension ViewController:  UICollectionViewDataSource, UICollectionViewDelegate 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DrinkCollectionViewCell.identifier, for: indexPath) as? DrinkCollectionViewCell else {
             fatalError("Could not create ImageCollectionViewCell")
         }
-        loadingIndicator.stopAnimating()
-        cell.configure(with: (viewModel.drinks?.drinks[indexPath.row])!)
+        if let drink = viewModel.drinks?.drinks[indexPath.row] {
+            cell.configure(with: drink)
+        }
         return cell
     }
 }

@@ -20,7 +20,10 @@ class NetworkManager: DataProvider {
     func getCocktails(query: String? = nil) -> AnyPublisher<Drink, APIError> {
         checkNetworkConnectivity()
         
-        let urlString = URLManager.getUrlString(for: .drinks)
+        var urlString = URLManager.getUrlString(for: .drinks)
+        if query?.count ?? -1 > 3 {
+            urlString = URLManager.getUrlString(for: .query(query ?? ""))
+        }
         let url = URL(string: urlString)
         let decoder = JSONDecoder()
         

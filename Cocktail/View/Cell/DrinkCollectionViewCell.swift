@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DrinkCollectionViewCell: UICollectionViewCell {
 
@@ -34,10 +35,10 @@ class DrinkCollectionViewCell: UICollectionViewCell {
         //subtitle.text = article.description
         //authorLabel.text = article.author
         if let imageData = drink.image {
-//            drinkImageVIew.sd_setImage(with: URL(string: imageData),
-//                                  placeholderImage: UIImage(named: "placeholder"),
-//                                  options: .continueInBackground,
-//                                  completed: nil)
+            drinkImageVIew.sd_setImage(with: URL(string: imageData),
+                                  placeholderImage: UIImage(named: "placeholder"),
+                                  options: .continueInBackground,
+                                  completed: nil)
         }
     }
 

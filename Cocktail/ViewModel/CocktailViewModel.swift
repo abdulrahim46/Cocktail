@@ -19,7 +19,7 @@ class CocktailViewModel {
     
     init(apiResource: DataProvider = NetworkManager()) {
         self.apiResource = apiResource
-        fetchDrinks()
+        fetchDrinks(query: "")
         unsubscribe()
     }
     
@@ -32,20 +32,21 @@ class CocktailViewModel {
     
     
     /// fetching news from server
-    func fetchDrinks() {
-        apiResource.getCocktails(query: "")
+    func fetchDrinks(query: String?) {
+        drinks = nil
+        apiResource.getCocktails(query: query)
             .receive(on: DispatchQueue.main)
             .map{$0}
             .sink { completion in
                 
                 switch completion {
-                
                 case .finished:
                     print("Done")
                 case .failure(let error):
                     print(error)
                 }
             } receiveValue: { [weak self] drinks in
+                print(drinks)
                 self?.drinks = drinks
                 
             }
