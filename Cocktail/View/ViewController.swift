@@ -43,14 +43,14 @@ class ViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let collectionView  = collectionView else { return }
         collectionView.register(UINib(nibName: "DrinkCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: DrinkCollectionViewCell.identifier)
+        collectionView.register(UINib(nibName: "StaticCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: StaticCollectionViewCell.identifier)
         collectionView.backgroundColor = .systemBackground
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
         view.addSubview(collectionView)
-        // collectionView.frame = view.bounds
         
-        //        ///tells the system we will define our own constraints
+        ///tells the system we will define our own constraints
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         //
         /// Constraining the collection view to the 4 edges of the view
@@ -60,14 +60,10 @@ class ViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
-        //        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
-        //        collectionView.register(TopSectionCollectionViewCell.self, forCellWithReuseIdentifier: TopSectionCollectionViewCell.reuseIdentifier)
-        //        collectionView.register(BottomSectionCollectionViewCell.self, forCellWithReuseIdentifier: BottomSectionCollectionViewCell.reuseIdentifier)
         setupView()
     }
     
-    func setupView() {
+    private func setupView() {
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loadingIndicator)
@@ -83,7 +79,7 @@ class ViewController: UIViewController {
         searchBarView.placeholder = "Search drinks"
     }
     
-    
+    //MARK: Fetching drinks
     private func fetchDrinks() {
         viewModel.fetchDrinks(query: "")
         viewModel.$drinks
@@ -112,10 +108,6 @@ extension ViewController: UISearchBarDelegate {
         //print("Search bar editing did end..")
     }
     
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        search(shouldShow: false)
-//    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count > 1 {
             viewModel.fetchDrinks(query: searchText)
@@ -126,22 +118,48 @@ extension ViewController: UISearchBarDelegate {
 }
 
 
+//MARK:- collectionview delegates
 
-extension ViewController:  UICollectionViewDataSource, UICollectionViewDelegate {
+extension ViewController:  UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.drinks?.drinks.count ?? 0
+        return (section == 0) ? 1 : viewModel.drinks?.drinks.count ?? 0
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DrinkCollectionViewCell.identifier, for: indexPath) as? DrinkCollectionViewCell else {
-            fatalError("Could not create ImageCollectionViewCell")
+        if indexPath.section == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StaticCollectionViewCell.identifier, for: indexPath) as? StaticCollectionViewCell else {
+                fatalError("Could not create StaticCollectionViewCell")
+            }
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DrinkCollectionViewCell.identifier, for: indexPath) as? DrinkCollectionViewCell else {
+                fatalError("Could not create DrinkCollectionViewCell")
+            }
+            if let drink = viewModel.drinks?.drinks[indexPath.row] {
+                cell.configure(with: drink)
+            }
+            return cell
         }
-        if let drink = viewModel.drinks?.drinks[indexPath.row] {
-            cell.configure(with: drink)
-        }
-        return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 0 {
+            return CGSize(width: collectionView.frame.width, height: 100)
+        }  else {
+            let size = (view.frame.size.width/2) - 1
+            return CGSize(width: size, height: size)
+        }
+    }
+    
 }
 
 

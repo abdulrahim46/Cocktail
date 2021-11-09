@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,8 @@
 		9668EE48273A786F0031004D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE47273A786F0031004D /* Constants.swift */; };
 		9668EE4D273A78B70031004D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE4C273A78B70031004D /* Extension.swift */; };
 		9668EE52273A91C30031004D /* CocktailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE51273A91C30031004D /* CocktailViewModel.swift */; };
+		9668EE62273AC0E70031004D /* StaticCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE60273AC0E70031004D /* StaticCollectionViewCell.swift */; };
+		9668EE63273AC0E70031004D /* StaticCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9668EE61273AC0E70031004D /* StaticCollectionViewCell.xib */; };
 		A7630C98CDE35E1081FBA0A9 /* Pods_CocktailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C5E4766098CE976E30674C /* Pods_CocktailTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,8 @@
 		9668EE47273A786F0031004D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9668EE4C273A78B70031004D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		9668EE51273A91C30031004D /* CocktailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailViewModel.swift; sourceTree = "<group>"; };
+		9668EE60273AC0E70031004D /* StaticCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCollectionViewCell.swift; sourceTree = "<group>"; };
+		9668EE61273AC0E70031004D /* StaticCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticCollectionViewCell.xib; sourceTree = "<group>"; };
 		9676D69FA8AE057B6C4DCD65 /* Pods-Cocktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cocktail.debug.xcconfig"; path = "Target Support Files/Pods-Cocktail/Pods-Cocktail.debug.xcconfig"; sourceTree = "<group>"; };
 		97AB053DDA5F1DCD81FDD5A3 /* Pods_Cocktail_CocktailUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cocktail_CocktailUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A12A18C3ACA4F6CD2A246 /* Pods-Cocktail-CocktailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cocktail-CocktailUITests.debug.xcconfig"; path = "Target Support Files/Pods-Cocktail-CocktailUITests/Pods-Cocktail-CocktailUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,7 +125,6 @@
 				05CA7F9B5F9C329D12ED1836 /* Pods-CocktailTests.debug.xcconfig */,
 				3CA0DECCFE48691057571A55 /* Pods-CocktailTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -229,6 +232,8 @@
 			children = (
 				9668EE1B273A51240031004D /* DrinkCollectionViewCell.swift */,
 				9668EE1C273A51240031004D /* DrinkCollectionViewCell.xib */,
+				9668EE60273AC0E70031004D /* StaticCollectionViewCell.swift */,
+				9668EE61273AC0E70031004D /* StaticCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				9668EDE8273978A50031004D /* LaunchScreen.storyboard in Resources */,
 				9668EDE5273978A50031004D /* Assets.xcassets in Resources */,
 				9668EDE32739789D0031004D /* Main.storyboard in Resources */,
+				9668EE63273AC0E70031004D /* StaticCollectionViewCell.xib in Resources */,
 				9668EE1E273A51240031004D /* DrinkCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9668EE62273AC0E70031004D /* StaticCollectionViewCell.swift in Sources */,
 				9668EE30273A75A20031004D /* NetworkManager.swift in Sources */,
 				9668EE43273A76820031004D /* Drink.swift in Sources */,
 				9668EDE02739789D0031004D /* ViewController.swift in Sources */,
