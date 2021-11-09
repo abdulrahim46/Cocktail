@@ -10,8 +10,9 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: - Properties & Views
-    
+
     var collectionView: UICollectionView!
+    @IBOutlet var searchBarView: UISearchBar!
     private(set) var loadingIndicator = UIActivityIndicatorView(style: .large)
 
     
@@ -43,25 +44,18 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
         view.addSubview(collectionView)
-        collectionView.frame = view.bounds
-        //collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: makeLayout())
-//        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        /// Assigning data source and background color
-//        collectionView.dataSource = self
-//        collectionView.delegate = self
-//        collectionView.backgroundColor = .systemBackground
-//        view.addSubview(collectionView)
-//
+       // collectionView.frame = view.bounds
+
 //        ///tells the system we will define our own constraints
-//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
 //
-//        /// Constraining the collection view to the 4 edges of the view
-//        NSLayoutConstraint.activate([
-//            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-//            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-//        ])
+        /// Constraining the collection view to the 4 edges of the view
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
         
 //        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
 //        collectionView.register(TopSectionCollectionViewCell.self, forCellWithReuseIdentifier: TopSectionCollectionViewCell.reuseIdentifier)
