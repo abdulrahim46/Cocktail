@@ -9,15 +9,16 @@ import Foundation
 
 struct URLManager {
     
-    static let kBaseURL = "https://saurav.tech"
-    static let kGetNewsEverything = "/NewsAPI/everything/cnn.json"
+    static let kBaseURL = "https://thecocktaildb.com"
+    static let kGetEverything = "/api/json/v1/1/search.php?s="
     
-    static func getUrlString(for serviceEnum: ServiceURLType)-> String {
+    static func getUrlString(for serviceEnum: ServiceURLType) -> String {
         switch serviceEnum {
-        case .news:
-            return kBaseURL + kGetNewsEverything
-        default:
-            return kBaseURL + kGetNewsEverything
+        case .drinks:
+            return kBaseURL + kGetEverything
+        case .query(let query):
+            return kBaseURL + kGetEverything + query
+            
         }
     }
     
@@ -25,6 +26,6 @@ struct URLManager {
 
 
 enum ServiceURLType {
-    case news
-    case details
+    case drinks
+    case query(String)
 }
