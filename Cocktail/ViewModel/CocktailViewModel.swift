@@ -46,7 +46,6 @@ class CocktailViewModel {
                     print(error)
                 }
             } receiveValue: { [weak self] drinks in
-                print(drinks)
                 self?.drinks = drinks
                 
             }

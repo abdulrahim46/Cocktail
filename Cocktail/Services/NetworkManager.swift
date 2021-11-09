@@ -16,13 +16,15 @@ class NetworkManager: DataProvider {
     var anyCancelable = Set<AnyCancellable>()
     
     
-    // get all news from api
+    // get all drinks from api
     func getCocktails(query: String? = nil) -> AnyPublisher<Drink, APIError> {
         checkNetworkConnectivity()
         
         var urlString = URLManager.getUrlString(for: .drinks)
-        if query?.count ?? -1 > 3 {
-            urlString = URLManager.getUrlString(for: .query(query ?? ""))
+        if let query = query {
+            urlString = URLManager.getUrlString(for: .query(query))
+        } else {
+            urlString = URLManager.getUrlString(for: .drinks)
         }
         let url = URL(string: urlString)
         let decoder = JSONDecoder()

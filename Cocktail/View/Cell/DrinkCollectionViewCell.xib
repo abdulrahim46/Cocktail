@@ -20,7 +20,7 @@
                         <rect key="frame" x="10" y="10" width="245" height="107"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mojita" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCt-AK-PzE">
-                        <rect key="frame" x="10" y="127" width="49" height="20"/>
+                        <rect key="frame" x="10" y="127" width="245" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="nih-Uh-4bJ"/>
                         </constraints>
@@ -37,6 +37,7 @@
                 <constraint firstAttribute="trailing" secondItem="oXL-Dj-B3X" secondAttribute="trailing" constant="10" id="gfZ-ka-fYa"/>
                 <constraint firstItem="oXL-Dj-B3X" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="igx-Ci-Xhd"/>
                 <constraint firstAttribute="bottom" secondItem="UCt-AK-PzE" secondAttribute="bottom" constant="11" id="oBe-MQ-05q"/>
+                <constraint firstAttribute="trailing" secondItem="UCt-AK-PzE" secondAttribute="trailing" constant="10" id="oGZ-kY-mkn"/>
                 <constraint firstItem="oXL-Dj-B3X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="pJz-bU-9Jf"/>
             </constraints>
             <size key="customSize" width="265" height="158"/>

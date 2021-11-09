@@ -117,7 +117,7 @@ extension ViewController: UISearchBarDelegate {
 //    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.count > 3 {
+        if searchText.count > 1 {
             viewModel.fetchDrinks(query: searchText)
             collectionView.reloadData()
             collectionView.isHidden = false
