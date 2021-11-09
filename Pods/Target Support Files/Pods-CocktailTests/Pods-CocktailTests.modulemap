@@ -1,0 +1,6 @@
+framework module Pods_CocktailTests {
+  umbrella header "Pods-CocktailTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
