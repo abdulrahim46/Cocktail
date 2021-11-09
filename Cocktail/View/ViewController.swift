@@ -39,9 +39,12 @@ class ViewController: UIViewController {
         layout.minimumInteritemSpacing = 1
         let size = (view.frame.size.width/2) - 1
         layout.itemSize = CGSize(width: size, height: size)
-        
+        //        let layoutSectionHeader = createSectionHeader()
+        //        section.boundarySupplementaryItems = [layoutSectionHeader]
+        //        return section
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let collectionView  = collectionView else { return }
+        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
         collectionView.register(UINib(nibName: "DrinkCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: DrinkCollectionViewCell.identifier)
         collectionView.register(UINib(nibName: "StaticCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: StaticCollectionViewCell.identifier)
         collectionView.backgroundColor = .systemBackground
@@ -61,6 +64,20 @@ class ViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         setupView()
+    }
+    
+    
+    /// Creates a Layout for the SectionHeader
+    private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        /// Define size of Section Header
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
+                                                             heightDimension: .estimated(80))
+        
+        /// Construct Section Header Layout
+        let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize,
+                                                                              elementKind: UICollectionView.elementKindSectionHeader,
+                                                                              alignment: .top)
+        return layoutSectionHeader
     }
     
     private func setupView() {
@@ -157,6 +174,30 @@ extension ViewController:  UICollectionViewDataSource, UICollectionViewDelegate,
         }  else {
             let size = (view.frame.size.width/2) - 1
             return CGSize(width: size, height: size)
+        }
+    }
+    
+    ///  Section Headers for collectionview
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseIdentifier, for: indexPath) as? SectionHeader else {
+            fatalError("Could not dequeue SectionHeader")
+        }
+        if indexPath.section == 0 {
+            headerView.titleLabel.isHidden = false
+            headerView.subtitleLabel.isHidden = false
+            headerView.titleLabel.text = "Near Restaurant"
+        } else {
+            headerView.titleLabel.isHidden = true
+            headerView.subtitleLabel.isHidden = true
+        }
+        return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: collectionView.frame.width, height: 60)
+        } else {
+            return CGSize(width: 0, height: 0)
         }
     }
     
