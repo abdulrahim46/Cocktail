@@ -15,6 +15,8 @@
 		9668EDE8273978A50031004D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9668EDE6273978A50031004D /* LaunchScreen.storyboard */; };
 		9668EDF3273978A50031004D /* CocktailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EDF2273978A50031004D /* CocktailTests.swift */; };
 		9668EDFE273978A50031004D /* CocktailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EDFD273978A50031004D /* CocktailUITests.swift */; };
+		9668EE1D273A51240031004D /* DrinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE1B273A51240031004D /* DrinkCollectionViewCell.swift */; };
+		9668EE1E273A51240031004D /* DrinkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9668EE1C273A51240031004D /* DrinkCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		9668EDF9273978A50031004D /* CocktailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocktailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9668EDFD273978A50031004D /* CocktailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailUITests.swift; sourceTree = "<group>"; };
 		9668EDFF273978A50031004D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9668EE1B273A51240031004D /* DrinkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCollectionViewCell.swift; sourceTree = "<group>"; };
+		9668EE1C273A51240031004D /* DrinkCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 		9668EE13273978E00031004D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9668EE1A273A50F80031004D /* Cell */,
 				9668EDE12739789D0031004D /* Main.storyboard */,
 				9668EDDF2739789D0031004D /* ViewController.swift */,
 			);
@@ -166,6 +171,15 @@
 				9668EDE6273978A50031004D /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		9668EE1A273A50F80031004D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9668EE1B273A51240031004D /* DrinkCollectionViewCell.swift */,
+				9668EE1C273A51240031004D /* DrinkCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +288,7 @@
 				9668EDE8273978A50031004D /* LaunchScreen.storyboard in Resources */,
 				9668EDE5273978A50031004D /* Assets.xcassets in Resources */,
 				9668EDE32739789D0031004D /* Main.storyboard in Resources */,
+				9668EE1E273A51240031004D /* DrinkCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +316,7 @@
 				9668EDE02739789D0031004D /* ViewController.swift in Sources */,
 				9668EDDC2739789D0031004D /* AppDelegate.swift in Sources */,
 				9668EDDE2739789D0031004D /* SceneDelegate.swift in Sources */,
+				9668EE1D273A51240031004D /* DrinkCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
