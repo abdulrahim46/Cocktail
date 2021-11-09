@@ -19,8 +19,26 @@ class DrinkCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        contentView.backgroundColor = .brown
+        setupView()
+    }
+    
+    func setupView() {
+        drinkImageVIew.layer.cornerRadius = 8
+        drinkImageVIew.clipsToBounds = true
+        drinkImageVIew.contentMode = .scaleAspectFill
+    }
+    
+    /// configure cell here
+    func configure(with drink: Drinks) {
+        drinkNameLabel.text = drink.drink
+        //subtitle.text = article.description
+        //authorLabel.text = article.author
+        if let imageData = drink.image {
+//            drinkImageVIew.sd_setImage(with: URL(string: imageData),
+//                                  placeholderImage: UIImage(named: "placeholder"),
+//                                  options: .continueInBackground,
+//                                  completed: nil)
+        }
     }
 
 }

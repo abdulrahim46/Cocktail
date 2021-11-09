@@ -16,9 +16,9 @@ struct Drink: Codable {
 }
 
 struct Drinks: Codable {
-    let category: String
-    let image: String
-    let drink: String
+    let category: String?
+    let image: String?
+    let drink: String?
     
     enum CodingKeys: String, CodingKey {
         case category = "strCategory"

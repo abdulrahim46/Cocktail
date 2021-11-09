@@ -6,21 +6,25 @@
 //
 
 import UIKit
+import Combine
 
 class ViewController: UIViewController {
     
     // MARK: - Properties & Views
-
+    
     var collectionView: UICollectionView!
     @IBOutlet var searchBarView: UISearchBar!
     private(set) var loadingIndicator = UIActivityIndicatorView(style: .large)
-
+    
+    let viewModel = CocktailViewModel()
+    var anyCancelable = Set<AnyCancellable>()
     
     //MARK:- Lifecycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        fetchDrinks()
     }
     
     
@@ -39,16 +43,16 @@ class ViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let collectionView  = collectionView else { return }
         collectionView.register(UINib(nibName: "DrinkCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: DrinkCollectionViewCell.identifier)
-        collectionView.backgroundColor = .black
+        collectionView.backgroundColor = .systemBackground
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
         view.addSubview(collectionView)
-       // collectionView.frame = view.bounds
-
-//        ///tells the system we will define our own constraints
+        // collectionView.frame = view.bounds
+        
+        //        ///tells the system we will define our own constraints
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-//
+        //
         /// Constraining the collection view to the 4 edges of the view
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor),
@@ -57,9 +61,9 @@ class ViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-//        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
-//        collectionView.register(TopSectionCollectionViewCell.self, forCellWithReuseIdentifier: TopSectionCollectionViewCell.reuseIdentifier)
-//        collectionView.register(BottomSectionCollectionViewCell.self, forCellWithReuseIdentifier: BottomSectionCollectionViewCell.reuseIdentifier)
+        //        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseIdentifier)
+        //        collectionView.register(TopSectionCollectionViewCell.self, forCellWithReuseIdentifier: TopSectionCollectionViewCell.reuseIdentifier)
+        //        collectionView.register(BottomSectionCollectionViewCell.self, forCellWithReuseIdentifier: BottomSectionCollectionViewCell.reuseIdentifier)
         setupView()
     }
     
@@ -74,8 +78,21 @@ class ViewController: UIViewController {
             loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
-
-
+    
+    
+    private func fetchDrinks() {
+        viewModel.fetchDrinks()
+        viewModel.$drinks
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] drinks in
+                self?.collectionView.reloadData()
+                self?.loadingIndicator.stopAnimating()
+            }
+            .store(in: &anyCancelable)
+        
+    }
+    
+    
 }
 
 
@@ -83,7 +100,7 @@ class ViewController: UIViewController {
 extension ViewController:  UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return viewModel.drinks?.drinks.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -91,7 +108,7 @@ extension ViewController:  UICollectionViewDataSource, UICollectionViewDelegate 
             fatalError("Could not create ImageCollectionViewCell")
         }
         loadingIndicator.stopAnimating()
-        //cell.configureView(cat: cat)
+        cell.configure(with: (viewModel.drinks?.drinks[indexPath.row])!)
         return cell
     }
 }
