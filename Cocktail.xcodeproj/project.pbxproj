@@ -24,6 +24,7 @@
 		9668EE43273A76820031004D /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE42273A76820031004D /* Drink.swift */; };
 		9668EE48273A786F0031004D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE47273A786F0031004D /* Constants.swift */; };
 		9668EE4D273A78B70031004D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE4C273A78B70031004D /* Extension.swift */; };
+		9668EE52273A91C30031004D /* CocktailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE51273A91C30031004D /* CocktailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		9668EE42273A76820031004D /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		9668EE47273A786F0031004D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9668EE4C273A78B70031004D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		9668EE51273A91C30031004D /* CocktailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		9668EE12273978C30031004D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9668EE51273A91C30031004D /* CocktailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				9668EE35273A75B40031004D /* DataProvider.swift in Sources */,
 				9668EE48273A786F0031004D /* Constants.swift in Sources */,
 				9668EDDE2739789D0031004D /* SceneDelegate.swift in Sources */,
+				9668EE52273A91C30031004D /* CocktailViewModel.swift in Sources */,
 				9668EE28273A758F0031004D /* URLManager.swift in Sources */,
 				9668EE3B273A76190031004D /* Alert.swift in Sources */,
 				9668EE1D273A51240031004D /* DrinkCollectionViewCell.swift in Sources */,

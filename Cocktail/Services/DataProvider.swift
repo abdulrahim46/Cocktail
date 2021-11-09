@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol DataProvider {
-    func getCocktails() -> AnyPublisher<Drink, NetworkManager.APIError>
+    func getCocktails(query: String?) -> AnyPublisher<Drink, NetworkManager.APIError>
 }

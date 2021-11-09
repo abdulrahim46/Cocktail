@@ -17,10 +17,10 @@ class NetworkManager: DataProvider {
     
     
     // get all news from api
-    func getCocktails() -> AnyPublisher<Drink, APIError> {
+    func getCocktails(query: String? = nil) -> AnyPublisher<Drink, APIError> {
         checkNetworkConnectivity()
         
-        let urlString = URLManager.getUrlString(for: .news)
+        let urlString = URLManager.getUrlString(for: .drinks)
         let url = URL(string: urlString)
         let decoder = JSONDecoder()
         
