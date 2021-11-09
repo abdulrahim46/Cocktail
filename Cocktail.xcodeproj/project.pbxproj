@@ -30,6 +30,7 @@
 		9668EE62273AC0E70031004D /* StaticCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE60273AC0E70031004D /* StaticCollectionViewCell.swift */; };
 		9668EE63273AC0E70031004D /* StaticCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9668EE61273AC0E70031004D /* StaticCollectionViewCell.xib */; };
 		9668EE68273ACA150031004D /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE67273ACA150031004D /* SectionHeader.swift */; };
+		9668EE6D273ACF460031004D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668EE6C273ACF460031004D /* DetailViewController.swift */; };
 		A7630C98CDE35E1081FBA0A9 /* Pods_CocktailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C5E4766098CE976E30674C /* Pods_CocktailTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		9668EE60273AC0E70031004D /* StaticCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCollectionViewCell.swift; sourceTree = "<group>"; };
 		9668EE61273AC0E70031004D /* StaticCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticCollectionViewCell.xib; sourceTree = "<group>"; };
 		9668EE67273ACA150031004D /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		9668EE6C273ACF460031004D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9676D69FA8AE057B6C4DCD65 /* Pods-Cocktail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cocktail.debug.xcconfig"; path = "Target Support Files/Pods-Cocktail/Pods-Cocktail.debug.xcconfig"; sourceTree = "<group>"; };
 		97AB053DDA5F1DCD81FDD5A3 /* Pods_Cocktail_CocktailUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cocktail_CocktailUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A12A18C3ACA4F6CD2A246 /* Pods-Cocktail-CocktailUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cocktail-CocktailUITests.debug.xcconfig"; path = "Target Support Files/Pods-Cocktail-CocktailUITests/Pods-Cocktail-CocktailUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				9668EE1A273A50F80031004D /* Cell */,
 				9668EDE12739789D0031004D /* Main.storyboard */,
 				9668EDDF2739789D0031004D /* ViewController.swift */,
+				9668EE6C273ACF460031004D /* DetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				9668EE52273A91C30031004D /* CocktailViewModel.swift in Sources */,
 				9668EE68273ACA150031004D /* SectionHeader.swift in Sources */,
 				9668EE28273A758F0031004D /* URLManager.swift in Sources */,
+				9668EE6D273ACF460031004D /* DetailViewController.swift in Sources */,
 				9668EE3B273A76190031004D /* Alert.swift in Sources */,
 				9668EE1D273A51240031004D /* DrinkCollectionViewCell.swift in Sources */,
 			);

@@ -25,9 +25,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         fetchDrinks()
+        navigationController?.navigationBar.isHidden = true
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        fetchDrinks()
+    }
     
     //MARK:- View Setup
     
@@ -66,20 +71,6 @@ class ViewController: UIViewController {
         setupView()
     }
     
-    
-    /// Creates a Layout for the SectionHeader
-    private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        /// Define size of Section Header
-        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95),
-                                                             heightDimension: .estimated(80))
-        
-        /// Construct Section Header Layout
-        let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize,
-                                                                              elementKind: UICollectionView.elementKindSectionHeader,
-                                                                              alignment: .top)
-        return layoutSectionHeader
-    }
-    
     private func setupView() {
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -107,6 +98,14 @@ class ViewController: UIViewController {
             }
             .store(in: &anyCancelable)
         
+    }
+    
+    /// navigate to detail view function
+    func navigateToDetailView(drink: Drinks) {
+        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        vc.drink = drink
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -165,7 +164,11 @@ extension ViewController:  UICollectionViewDataSource, UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if indexPath.section != 0 {
+            if let drink = viewModel.drinks?.drinks[indexPath.row] {
+                navigateToDetailView(drink: drink)
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

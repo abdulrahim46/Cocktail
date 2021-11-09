@@ -33,7 +33,6 @@ class CocktailViewModel {
     
     /// fetching news from server
     func fetchDrinks(query: String?) {
-        drinks = nil
         apiResource.getCocktails(query: query)
             .receive(on: DispatchQueue.main)
             .map{$0}

@@ -32,8 +32,6 @@ class DrinkCollectionViewCell: UICollectionViewCell {
     /// configure cell here
     func configure(with drink: Drinks) {
         drinkNameLabel.text = drink.drink
-        //subtitle.text = article.description
-        //authorLabel.text = article.author
         if let imageData = drink.image {
             drinkImageVIew.sd_setImage(with: URL(string: imageData),
                                   placeholderImage: UIImage(named: "placeholder"),
