@@ -1,4 +1,4 @@
-# Cocktail iOS Test assignment
+# Cocktail iOS app
 ## Cocktail App
 
 
