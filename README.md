@@ -78,19 +78,19 @@ thecocktaildb.com/api/json/v1/1/search.php?s=mojito
 ## 📱 Screenshots
 
 <p float="left"> 
-<img src="/Documentation/sim1.png" width="200">
-<img src="/Documentation/sim2.png" width="200">
-<img src="/Documentation/sim3.png" width="200">
-<img src="/Documentation/sim4.png" width="200">
+<img src="/Documentation/sim1.png" width="100">
+<img src="/Documentation/sim2.png" width="100">
+<img src="/Documentation/sim3.png" width="100">
+<img src="/Documentation/sim4.png" width="100">
 </p>
 
 
 <p float="left"> 
-<img src="/Documentation/sim1.png" width="200">
-<img src="/Documentation/sim2.png" width="200">
-<img src="/Documentation/sim3.png" width="200">
-<img src="/Documentation/sim4.png" width="200">
-<img src="/Documentation/siim5.png" width="200">
+<img src="/Documentation/sim1.png" width="100">
+<img src="/Documentation/sim2.png" width="100">
+<img src="/Documentation/sim3.png" width="100">
+<img src="/Documentation/sim4.png" width="100">
+<img src="/Documentation/sim5.png" width="100">
 </p>
 
 
