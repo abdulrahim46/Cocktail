@@ -93,5 +93,3 @@ thecocktaildb.com/api/json/v1/1/search.php?s=mojito
 <img src="/Documentation/sim5.png" width="100">
 </p>
 
-<img src="/Documentation/Untitled-2022-01-06-1526.png" width="700">
-
