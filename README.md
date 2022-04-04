@@ -93,5 +93,5 @@ thecocktaildb.com/api/json/v1/1/search.php?s=mojito
 <img src="/Documentation/sim5.png" width="100">
 </p>
 
-<img src="/Documentation/sim5.png" width="500">
+<img src="/Documentation/sim5.png" width="10">
 
